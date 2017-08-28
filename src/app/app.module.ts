@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
 
 import { RoutingModule } from './app-routing.module';
 import { NgProgressModule } from 'ng2-progressbar';
@@ -50,7 +49,6 @@ const ROUTES = [
     ReactiveFormsModule,
     HttpModule,
     NgProgressModule,
-    MaterialModule,
     RoutingModule // Add routes to the app
   ],
   providers: [
