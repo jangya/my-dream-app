@@ -26,7 +26,8 @@ import {AuthRouting} from './auth.routes';
   providers: [
     AuthGuard,
     AuthService
-  ]
+  ],
+  exports:[LoginComponent]
 })
 
 export class AuthModule {

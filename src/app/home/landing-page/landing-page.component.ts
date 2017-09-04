@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, } from '@angular/core';
-
+import {LoginComponent} from '../../auth/login/login.component'
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',

@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
-import {BlankLayoutComponent} from "../components/common/layouts/blankLayout.component";
+import {BlankLayoutComponent} from "../shared/common/layouts/blankLayout.component";
 
 
 const authRoutes: Routes = [  

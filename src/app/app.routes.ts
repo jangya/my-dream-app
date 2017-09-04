@@ -1,9 +1,9 @@
 import {Routes,RouterModule} from "@angular/router";
 
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import {BlankLayoutComponent} from "./components/common/layouts/blankLayout.component";
-import {BasicLayoutComponent} from "./components/common/layouts/basicLayout.component";
-import {TopNavigationLayoutComponent} from "./components/common/layouts/topNavigationlayout.component";
+import { LandingPageComponent } from './home/landing-page/landing-page.component';
+import {BlankLayoutComponent} from "./shared/common/layouts/blankLayout.component";
+import {BasicLayoutComponent} from "./shared/common/layouts/basicLayout.component";
+import {TopNavigationLayoutComponent} from "./shared/common/layouts/topNavigationlayout.component";
 
 const appRoutes:Routes = [
   // Main redirect
@@ -14,8 +14,8 @@ const appRoutes:Routes = [
     children: [
       {path: '', component: LandingPageComponent}
     ]
-  },
-  {path: '**',  redirectTo: ''} 
+  }
+  // {path: '**',  redirectTo: ''} 
 ];
 export const AppRouting = RouterModule.forRoot(appRoutes);
 

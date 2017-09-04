@@ -12,19 +12,22 @@ import {DashboardsModule} from "./dashboards/dashboards.module";
 import {AuthModule} from "./auth/auth.module";
 
 // App modules/components
-import {LayoutsModule} from "./components/common/layouts/layouts.module";
-import {LandingPageComponent} from "./landing-page/landing-page.component";
+import {SharedModule} from "./shared/shared.module";
+import {PrivateModule} from "./private/private.module";
+import {HomeModule} from "./home/home.module";
+import {LandingPageComponent} from "./home/landing-page/landing-page.component";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LandingPageComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    LayoutsModule,
+    HomeModule,
+    SharedModule,
+    PrivateModule,
     AuthModule,
     AppRouting
   ],
