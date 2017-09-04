@@ -12,6 +12,7 @@ import { IboxtoolsModule } from '../shared/common/iboxtools/iboxtools.module';
 import { PeityModule } from '../shared/charts/peity';
 import { SparklineModule } from '../shared/charts/sparkline';
 import { JVectorMapModule } from '../shared/map/jvectorMap';
+import { ExpenseComponent } from './expense/expense.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,6 @@ import { JVectorMapModule } from '../shared/map/jvectorMap';
     JVectorMapModule,
     PrivateRouting
   ],
-  declarations: [DashboardComponent]
+  declarations: [DashboardComponent, ExpenseComponent]
 })
 export class PrivateModule { }

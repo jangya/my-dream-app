@@ -6,9 +6,11 @@ var config = require('./../config/database');
 
 /* Controllers */
 var userCtrl = require('./../controller/userCtrl');
+var expenseCtrl = require('./../controller/expenseCtrl');
 
 /* Models */
 var User = require('./../model/user');
+var Expense = require('./../model/expense');
 
 var auth = jwt({
   secret: config.secret,
@@ -29,9 +31,17 @@ router.post('/login', userCtrl.login);
 
 router.get('/profile', auth, userCtrl.profileRead);
 
-router.get('/users', auth, userCtrl.allUsers);
+router.get('/users', userCtrl.allUsers);
 
 /* --Ending user related API(s) . */
 
+/* ++Starting expense related API(s) . */
 
+router.post('/expense', expenseCtrl.create);
+
+router.get('/expense', auth, expenseCtrl.allExpenses);
+
+router.get('/expense/:userId', auth, expenseCtrl.getExpense);
+
+/* --Ending user related API(s) . */
 module.exports = router;

@@ -57,6 +57,7 @@ module.exports.login = function(req, res) {
 
     // If a user is found
     if(user){
+      console.log(user);
       token = user.generateJwt();
       res.status(200);
       res.json({
@@ -78,7 +79,7 @@ module.exports.profileRead = function(req, res) {
   } else {
     User
       .findById(req.payload._id)
-      .select('firstName email username lastName')
+      .select('id firstName email username lastName')
       .exec(function(err, user) {
         res.status(200).json(user);
       });

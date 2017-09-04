@@ -14,14 +14,8 @@ import {FooterComponent} from "./common/footer/footer.component";
 import {TopNavbarComponent} from "./common/topnavbar/topnavbar.component";
 import {TopNavigationNavbarComponent} from "./common/topnavbar/topnavigationnavbar.component";
 
-// Chart.js Angular 2 Directive by Valor Software (npm)
-import { ChartsModule } from 'ng2-charts/ng2-charts';
-
-import { FlotModule } from '../shared/charts/flotChart';
-import { IboxtoolsModule } from '../shared/common/iboxtools/iboxtools.module';
-import { PeityModule } from '../shared/charts/peity';
-import { SparklineModule } from '../shared/charts/sparkline';
-import { JVectorMapModule } from '../shared/map/jvectorMap';
+import {CommonService} from "./common.service";
+import {HttpInterceptor} from "./http-interceptor";
 
 @NgModule({
   declarations: [
@@ -36,13 +30,11 @@ import { JVectorMapModule } from '../shared/map/jvectorMap';
   imports: [
     BrowserModule,
     RouterModule,
-    ChartsModule, 
-    FlotModule,
-    IboxtoolsModule,
-    PeityModule,
-    SparklineModule,
-    JVectorMapModule,
     BsDropdownModule.forRoot()
+  ],
+  providers: [
+    CommonService,
+    HttpInterceptor
   ],
   exports: [
     FooterComponent,
