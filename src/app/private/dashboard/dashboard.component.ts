@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit, } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { ExpenseService } from "../expense/expense.service";
 import { FlotChartDirective } from '../../shared/charts/flotChart';
 
 declare var jQuery:any;
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
   public nav:any;
   public todos: any;
 
-  public constructor() {
+  public constructor(private router: Router, private expenseService: ExpenseService) {
     this.nav = document.querySelector('nav.navbar');
     this.todos = [
       {name: "Buy a milk", completed: true},
@@ -29,6 +30,10 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
   public ngOnInit():any {
     this.nav.className += " white-bg";
+    this.expenseService.getExpenses().subscribe(result => {  
+      if(result.length == 0)
+        this.router.navigate(['/app/expense-create']);
+    });
   }
 
 

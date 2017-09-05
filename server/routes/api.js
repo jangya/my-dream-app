@@ -37,11 +37,11 @@ router.get('/users', userCtrl.allUsers);
 
 /* ++Starting expense related API(s) . */
 
-router.post('/expense', expenseCtrl.create);
+router.post('/expense', auth, expenseCtrl.create);
 
-router.get('/expense', auth, expenseCtrl.allExpenses);
+// router.get('/expenses', auth, expenseCtrl.allExpenses);
 
-router.get('/expense/:userId', auth, expenseCtrl.getExpense);
+router.get('/expense', auth, expenseCtrl.getExpense);
 
 /* --Ending user related API(s) . */
 module.exports = router;

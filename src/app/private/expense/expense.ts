@@ -1,6 +1,7 @@
 export class Expense {
-    id:string;
+    _id: string;
     name: string;
+    details: string; 
     sharing: boolean;
     userId: string;
 }

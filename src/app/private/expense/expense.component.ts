@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CommonService} from "../../shared/common.service";
-import { User }          from '../../auth/user';
+import {ExpenseService} from "./expense.service";
+import { Expense }          from './expense';
 
 @Component({
   selector: 'app-expense',
@@ -8,13 +8,15 @@ import { User }          from '../../auth/user';
   styleUrls: ['./expense.component.css']
 })
 export class ExpenseComponent implements OnInit {
+  expenses: Expense[];
 
-  constructor(private commonService: CommonService) { }
-  currentUser: User;
+  constructor(
+    private expenseService: ExpenseService
+  ) {}
+  
   ngOnInit() {
-    this.commonService.getUserInfo().subscribe(result => {
-      this.currentUser = result;
-    });
+      this.expenseService.getExpenses().subscribe(resultFromExpense => {
+        this.expenses = resultFromExpense;
+      });
   }
-
 }

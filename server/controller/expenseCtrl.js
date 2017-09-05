@@ -9,8 +9,8 @@ var sendJSONresponse = function(res, status, content) {
 
 module.exports.create = function(req, res) {
   // req.body = JSON.parse(req.body.toString());
-  console.log(req.body);
-  if(!req.body.name || !req.body.userId) {
+  console.log("payload",req.payload);
+  if(!req.body.name || !req.payload._id) {
     sendJSONresponse(res, 400, {
       "message": "Name is required"
     });
@@ -20,26 +20,27 @@ module.exports.create = function(req, res) {
   var expense = new Expense();
 
   expense.name = req.body.name;
+  expense.details = req.body.details;
   expense.sharing = req.body.sharing;
-  expense._userId = req.body.userId;
+  expense._userId = req.payload._id;
 
-  expense.save(function(err) {
+  expense.save(function(err,expenseRecord) {
     if (err) throw err;
+    console.log(expenseRecord);
     res.status(200);
-    res.json({
-      "message" : "Succesfully created"
-    });
+    res.json(expenseRecord);
   });
 
 };
 module.exports.getExpense = function(req, res) {
-    if (!req.params.userId) {
+  console.log("payload",req.payload);
+    if (!req.payload._id) {
       res.status(401).json({
         "message" : "UnauthorizedError: private profile"
       });
     } else {
       Expense
-        .find({_userId:req.params.userId})
+        .find({_userId:req.payload._id})
         .exec(function(err, expense) {
           res.status(200).json(expense);
         });

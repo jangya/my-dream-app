@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {AppRouting} from "./app.routes";
 import { AppComponent } from './app.component';
 
@@ -24,6 +24,7 @@ import {LandingPageComponent} from "./home/landing-page/landing-page.component";
   imports: [
     BrowserModule,
     FormsModule,
+    NgbModule.forRoot(),
     HttpModule,
     HomeModule,
     SharedModule,

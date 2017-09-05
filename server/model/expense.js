@@ -13,6 +13,9 @@ var expenseSchema = new Schema({
     ref: 'users',
     required: true
   },
+  details: {
+    type: String,
+  },
   sharing: {
     type: Boolean
   },
