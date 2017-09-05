@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+import { ExpenseService } from '../../../private/expense/expense.service';
+import { Expense } from '../../../private/expense/expense';
 import 'jquery-slimscroll';
 
 declare var jQuery:any;
@@ -10,8 +12,14 @@ declare var jQuery:any;
 })
 
 export class NavigationComponent {
+  expenses: Expense[];
+  constructor(private router: Router, private expenseService: ExpenseService) {}
 
-  constructor(private router: Router) {}
+  ngOnInit() {
+    this.expenseService.getExpenses().subscribe(resultFromExpense => {
+      this.expenses = resultFromExpense;
+    });
+  }
 
   ngAfterViewInit() {
     jQuery('#side-menu').metisMenu();
