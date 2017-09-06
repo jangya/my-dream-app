@@ -4,7 +4,7 @@ import { Response }         from '@angular/http';
 import { config }           from '../config';
 import { Observable }       from 'rxjs';
 import 'rxjs/add/operator/map';
-import { User }             from '../auth/auth.service';
+import { User }             from '../auth/user';
 
 @Injectable()
 export class CommonService {

@@ -19,14 +19,17 @@ const routes: Routes = [
   { path: 'user', loadChildren: 'app/private/auth/auth.module#AuthModule' },
   {
     path: 'dashboard',
-    loadChildren: 'app/private/dashboard/dashboard.module#DashboardModule'
+    loadChildren: 'app/private/dashboard/dashboard.module#DashboardModule',
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    canLoad: [AuthGuard]
   },
   {
     path: 'expense',
     loadChildren: 'app/private/expense/expense.module#ExpenseModule',
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
-    canLoad: [AuthGuard],
+    canLoad: [AuthGuard]
   },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ];

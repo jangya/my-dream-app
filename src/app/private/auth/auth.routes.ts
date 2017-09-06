@@ -32,7 +32,7 @@ const routes: Routes = [
 })
 export class AuthRoutingModule { }
 
-export const routedComponents = [LoginComponent, RegisterComponent, BlankLayoutComponent];
+export const routedComponents = [LoginComponent, RegisterComponent];
 
 
 

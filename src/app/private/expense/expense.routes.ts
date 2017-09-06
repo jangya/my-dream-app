@@ -29,4 +29,4 @@ const routes: Routes = [
 })
 export class ExpenseRoutingModule { }
 
-export const routedComponents = [ExpenseComponent, CreateExpenseComponent, BasicLayoutComponent];
+export const routedComponents = [ExpenseComponent, CreateExpenseComponent];
