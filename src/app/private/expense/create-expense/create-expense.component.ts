@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ExpenseService} from '../expense.service';
-import { Expense } from "../expense";
+import { Expense, ExpenseService }  from "../../services";
 
 @Component({
   selector: 'app-create-expense',

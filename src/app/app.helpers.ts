@@ -7,13 +7,9 @@
  * smoothlyMenu() - add smooth fade in/out on navigation show/ide
  *
  */
-import { environment } from '../environments/environment';
 
 declare var jQuery:any;
 
-export const config = {
-  baseUrl: environment.production ? "":"http://localhost:3000/"
-};
 export function correctHeight() {
 
   var pageWrapper = jQuery('#page-wrapper');

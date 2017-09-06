@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit, } from '@angular/core';
 import { Router } from '@angular/router';
-import { ExpenseService } from "../expense/expense.service";
-import { FlotChartDirective } from '../../shared/charts/flotChart';
+import { ExpenseService } from "../services";
 
 declare var jQuery:any;
 

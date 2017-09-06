@@ -1,23 +1,53 @@
-import {Routes,RouterModule} from "@angular/router";
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, Routes, RouterModule } from '@angular/router';
 
+import { AuthGuard } from './private/services';
+import { PageNotFoundComponent } from './page-not-found.component';
 import { LandingPageComponent } from './home/landing-page/landing-page.component';
-import {BlankLayoutComponent} from "./shared/common/layouts/blankLayout.component";
-import {BasicLayoutComponent} from "./shared/common/layouts/basicLayout.component";
-import {TopNavigationLayoutComponent} from "./shared/common/layouts/topNavigationlayout.component";
 
-const appRoutes:Routes = [
-  // Main redirect
-  // {path: '', redirectTo: '', pathMatch: 'full'},
-  {path: '', component: LandingPageComponent, pathMatch: 'full'},
+/***************************************************************
+* Lazy Loading to Eager Loading
+*
+* 1. Remove the module and NgModule imports in `app.module.ts`
+*
+* 2. Remove the lazy load route from `app.routing.ts`
+*
+* 3. Change the module's default route path from '' to 'pathname'
+*****************************************************************/
+const routes: Routes = [
+  { path: '', pathMatch: 'full', component: LandingPageComponent },
+  { path: 'user', loadChildren: 'app/private/auth/auth.module#AuthModule' },
   {
-    path: '', component: BlankLayoutComponent,
-    children: [
-      {path: '', component: LandingPageComponent}
-    ]
-  }
-  // {path: '**',  redirectTo: ''} 
+    path: 'dashboard',
+    loadChildren: 'app/private/dashboard/dashboard.module#DashboardModule'
+  },
+  {
+    path: 'expense',
+    loadChildren: 'app/private/expense/expense.module#ExpenseModule',
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    canLoad: [AuthGuard],
+  },
+  { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ];
-export const AppRouting = RouterModule.forRoot(appRoutes);
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
+  exports: [RouterModule],
+  providers: [
+    AuthGuard
+  ]
+})
+export class AppRoutingModule { }
+
+
+// import {Routes,RouterModule} from "@angular/router";
+// import { LandingPageComponent } from './home/landing-page/landing-page.component';
+
+// const appRoutes:Routes = [
+//   {path: '', component: LandingPageComponent, pathMatch: 'full'},
+// ];
+// export const AppRouting = RouterModule.forRoot(appRoutes);
 
 
 
