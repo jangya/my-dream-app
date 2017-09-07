@@ -31,7 +31,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     this.nav.className += " white-bg";
     this.expenseService.getExpenses().subscribe(result => {  
       if(result.length == 0)
-        this.router.navigate(['/app/expense-create']);
+        this.router.navigate(['/expense/create']);
     });
   }
 

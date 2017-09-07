@@ -11,7 +11,7 @@ const routes: Routes = [
     component: BasicLayoutComponent,
     children: [
       {
-        path: 'all',
+        path: '',
         component: ExpenseComponent,
       },
       {

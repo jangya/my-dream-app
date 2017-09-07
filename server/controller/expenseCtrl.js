@@ -20,6 +20,8 @@ module.exports.create = function(req, res) {
   var expense = new Expense();
 
   expense.name = req.body.name;
+  expense.type = req.body.type;
+  expense.members = req.body.members;
   expense.details = req.body.details;
   expense.sharing = req.body.sharing;
   expense._userId = req.payload._id;

@@ -11,14 +11,16 @@ var expenseSchema = new Schema({
   _userId: {
     type: Schema.Types.ObjectId,
     ref: 'users',
-    required: true
+    required: [true, 'User is missing.']
   },
-  details: {
+  type: {
     type: String,
+    enum: ['CR', 'DM', 'ST'],
+    required: [true, 'Expense type is missing.']
   },
-  sharing: {
-    type: Boolean
-  },
+  members: [Schema.Types.Mixed],
+  details: String,
+  sharing: Boolean,
   created_at: Date,
   updated_at: Date
 });

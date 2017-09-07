@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import {NgModule} from "@angular/core";
 import {RouterModule} from "@angular/router";
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {BsDropdownModule} from 'ngx-bootstrap';
 
 import {BasicLayoutComponent} from "./layouts/basicLayout.component";
@@ -12,6 +12,7 @@ import {NavigationComponent} from "./navigation/navigation.component";
 import {FooterComponent} from "./footer/footer.component";
 import {TopNavbarComponent} from "./topnavbar/topnavbar.component";
 import {TopNavigationNavbarComponent} from "./topnavbar/topnavigationnavbar.component";
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,13 @@ import {TopNavigationNavbarComponent} from "./topnavbar/topnavigationnavbar.comp
     NavigationComponent,
     TopNavigationLayoutComponent,
     TopNavbarComponent,
-    TopNavigationNavbarComponent
+    TopNavigationNavbarComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     IboxtoolsModule,
-    NgbModule,
     BsDropdownModule.forRoot()
   ],
   exports: [
